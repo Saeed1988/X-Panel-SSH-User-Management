@@ -100,13 +100,13 @@ done
     yellow "Checking if the port 80 is in use..."
     sleep 1
     
-    if [[  $(lsof -i:"80" | grep -i -c "listen") -eq 0 ]]; then
-        green "Good! Port 80 is not in use"
+    if [[  $(lsof -i:"443" | grep -i -c "listen") -eq 0 ]]; then
+        green "Good! Port 443 is not in use"
         sleep 1
     else
-        red "Port 80 is currently in use, please close the service this service, which is using port 80:"
-        lsof -i:"80"
-            lsof -i:"80" | awk '{print $2}' | grep -v "PID" | xargs kill -9
+        red "Port 443 is currently in use, please close the service this service, which is using port 443:"
+        lsof -i:"443"
+            lsof -i:"443" | awk '{print $2}' | grep -v "PID" | xargs kill -9
             sleep 1
         
     fi
